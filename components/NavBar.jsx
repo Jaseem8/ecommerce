@@ -9,7 +9,7 @@ import Login from "./Login";
 import { createPortal } from "react-dom";
 import UserNav from "./UserNav";
 
-const Navbar = () => {
+const NavBar = () => {
   const {
     showCart,
     setShowCart,
@@ -77,4 +77,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

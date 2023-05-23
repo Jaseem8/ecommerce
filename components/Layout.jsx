@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 
 import Footer from "./Footer";
-import Navbar from "@/components/NavBar";
+import NavBar from "@/components/NavBar";
 const Layout = ({ children }) => {
   return (
     <div className="layout">
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         <title>Store</title>
       </Head>
       <header>
-        <Navbar />
+        <NavBar />
       </header>
       <main className="main-container">{children}</main>
 
