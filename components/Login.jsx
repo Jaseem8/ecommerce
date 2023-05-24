@@ -50,7 +50,7 @@ function Login(props) {
                 onClick={() => SetLoginMode(false)}
                 className="already-button"
               >
-                SignUphere
+                Sign Up
               </button>
             </div>
           </div>

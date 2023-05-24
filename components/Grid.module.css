@@ -3,6 +3,7 @@
   font-style: italic;
   font-weight: 700;
   font-size: 1.5vw;
+  text-align: center;
 }
 
 .grid_container {
@@ -54,19 +55,62 @@
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
-
+  text-align: center;
   margin: 3%;
 }
 .price {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 0.8vw;
   font-weight: 900;
+  text-align: center;
   margin: 0% 5% 0% 5%;
 }
 
 @media only screen and (max-width: 450px) {
+  .title {
+    margin: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 15px;
+    color: rgb(17, 17, 124);
+    text-align: center;
+  }
+
   .grid_container {
     width: 80vw;
     aspect-ratio: 1;
+  }
+  .box {
+    background-color: #ffffff;
+    padding: 0;
+
+    align-content: center;
+  }
+
+  .image_container {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1;
+
+    align-items: center;
+    justify-content: center;
+  }
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+    background-size: contain;
+  }
+  .name {
+    font-weight: 500;
+    font-size: 12px;
+
+    margin: 2%;
+  }
+  .price {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    margin: 0% 5% 0% 5%;
   }
 }

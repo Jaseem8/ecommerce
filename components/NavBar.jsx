@@ -28,14 +28,14 @@ const NavBar = () => {
 
   return (
     <div className="navbar-container">
-      <p className="logo">
+      <div className="logo">
         <Link href="/">
           <img
             src="https://cdn.sanity.io/images/l709lxgz/production/0db4700ba60d714b0ede1612521efe4a31a70b14-75x75.png"
             className="logoimg"
           />
         </Link>
-      </p>
+      </div>
       <Search />
 
       {!isLoggedIn && (

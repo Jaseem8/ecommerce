@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 function Search(props) {
   const inputRef = useRef();
   const [products, setProducts] = useState();
+
   const searchHandler = () => {
     let timer;
     clearTimeout(timer);
@@ -45,7 +46,7 @@ function Search(props) {
       </form>
 
       {products && inputRef.current.value.length > 0 && (
-        <div className="search-container">
+        <div className="search-container" id="search-container">
           {products.map((item) => {
             return (
               <div

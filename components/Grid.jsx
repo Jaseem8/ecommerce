@@ -18,7 +18,7 @@ function Grid(props) {
   }, []);
 
   return (
-    <div style={{ margin: "1%", textAlign: "center" }}>
+    <div className="title">
       <div className={classes.title}>{props.title}</div>
       <div className={classes.grid_container}>
         {selected.map((product, index) => {
@@ -42,5 +42,14 @@ function Grid(props) {
     </div>
   );
 }
+// export const getServerSideProps = async () => {
+//   const query = `*[_type=="product" && Categories=='${props.categories}' ]`;
+//   const products = await client.fetch(query);
+//   const shuffled = products.sort(() => 0.5 - Math.random());
 
+//   let selected = shuffled.slice(0, 4);
+//   return {
+//     props: { selected },
+//   };
+// };
 export default Grid;
