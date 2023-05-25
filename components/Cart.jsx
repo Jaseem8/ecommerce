@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   AiOutlineMinus,
@@ -14,6 +14,8 @@ import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 
 const Cart = () => {
+  const [isCartLimitExceed, setIsCartLimitExceed] = useState(false);
+
   const cartRef = useRef();
   const {
     totalPrice,
@@ -23,6 +25,14 @@ const Cart = () => {
     toggleCartItemQuanitity,
     onRemove,
   } = useStateContext();
+  useEffect(() => {
+    if (totalPrice > 500000) {
+      setIsCartLimitExceed(true);
+    }
+    if (totalPrice <= 500000) {
+      setIsCartLimitExceed(false);
+    }
+  }, [totalPrice]);
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -78,12 +88,12 @@ const Cart = () => {
             cartItems.map((item) => (
               <div className="product" key={item._id}>
                 <img
-                  src={urlFor(item?.image[0])}
+                  src={urlFor(item.image[0])}
                   className="cart-product-image"
                 />
                 <div className="item-desc">
                   <div className="flex top">
-                    <h5>{item?.name}</h5>
+                    <h5>{item.name}</h5>
                     <h4>Rs &nbsp;{item.price}</h4>
                   </div>
                   <div className="flex bottom">
@@ -129,8 +139,15 @@ const Cart = () => {
               <h3>Rs &nbsp;{totalPrice}</h3>
             </div>
             <div className="btn-container">
-              <button type="button" className="btn" onClick={handleCheckout}>
-                Pay with Stripe
+              <button
+                type="button"
+                className="btn"
+                onClick={handleCheckout}
+                disabled={isCartLimitExceed}
+              >
+                {isCartLimitExceed &&
+                  "Your Order Total is above the limit of Rs 500000"}
+                {!isCartLimitExceed && "Pay"}
               </button>
             </div>
           </div>
